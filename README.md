@@ -14,7 +14,7 @@ bastion_IP = 35.228.166.42
 someinternalhost_IP = 10.166.0.3
 
 # homework #4
-testapp_IP = 35.198.167.169
+testapp_IP = 35.228.90.31
 testapp_port = 9292
 
 # automated instance and app deploy
