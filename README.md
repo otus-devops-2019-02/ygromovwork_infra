@@ -12,3 +12,26 @@ Host GCP_INTERNAL_SUBNET.*
 # bastion openVPN
 bastion_IP = 35.228.166.42
 someinternalhost_IP = 10.166.0.3
+
+# homework #4
+testapp_IP = 35.228.90.31
+testapp_port = 9292
+
+# automated instance and app deploy
+gcloud compute instances create reddit-app \
+--boot-disk-size=10GB  \
+--image-family ubuntu-1604-lts \
+--image-project=ubuntu-os-cloud \
+--machine-type=g1-small \
+--tags puma-server \
+--restart-on-failure \
+--metadata-from-file startup-script=startUp.sh
+
+# add firewall rule
+gcloud compute firewall-rules create default-puma-server1 \
+    --network default \
+    --action allow \
+    --direction ingress \
+    --rules tcp:9292 \
+    --source-ranges 0.0.0.0/0 \
+    --target-tags puma-server
