@@ -3,12 +3,13 @@
         {
             "type": "googlecompute",
             "project_id": "{{user `project_id`}}",
-            "image_name": "reddit-base-{{timestamp}}",
-            "image_family": "reddit-base",
+            "image_name": "reddit-full-{{timestamp}}",
+            "image_family": "reddit-full",
             "source_image_family": "{{user `source_image_family`}}",
             "zone": "europe-west1-b",
-            "ssh_username": "appuser",
-            "machine_type": "f1-micro"
+            "ssh_username": "ygromov",
+            "machine_type": "f1-micro",
+            "tags": "puma-server"
         }
     ],
     "provisioners": [
@@ -20,6 +21,16 @@
         {
             "type": "shell",
             "script": "scripts/install_mongodb.sh",
+            "execute_command": "sudo {{.Path}}"
+        },
+        {
+            "type": "file",
+            "source": "files/puma.service",
+            "destination": "/home/ygromov/puma.service"
+        },
+        {
+            "type": "shell",
+            "script": "scripts/deploy.sh",
             "execute_command": "sudo {{.Path}}"
         }
     ]
