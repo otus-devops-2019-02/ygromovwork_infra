@@ -1,0 +1,4 @@
+{
+    "project_id": "your gcp project name",
+    "source_image_family": "img fammily"
+}

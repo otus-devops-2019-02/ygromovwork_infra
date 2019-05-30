@@ -35,3 +35,9 @@ gcloud compute firewall-rules create default-puma-server1 \
     --rules tcp:9292 \
     --source-ranges 0.0.0.0/0 \
     --target-tags puma-server
+
+# ДЗ №5
+create image with packer @GCP for immutable app deploy
+~]$ packer build -var-file=variables.json immutable.json
+start VM @GCP
+~]$ config-scripts/create-reddit-vm.sh
