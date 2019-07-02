@@ -42,7 +42,6 @@ create image with packer @GCP for immutable app deploy
 start VM @GCP
 ~]$ config-scripts/create-reddit-vm.sh
 
-
 # ДЗ №6
 created new project for deployment
 1) 2 app instances main.tf
