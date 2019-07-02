@@ -48,9 +48,7 @@ created new project for deployment
 1) 2 app instances main.tf
 declare variables
 use one resorce to create 2 app instances
-
 2) 1 loadbalancer lb.tf
 based on nginx (upstream)
 has to be deployed after app instances are UP (depends_on)
-
 3) output IPs of instances
